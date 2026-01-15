@@ -31,10 +31,10 @@ return (
 
       <div className="list">
         {agents.map(agent => (
-          <div key={agent._id} className="list-item">
+          <div key={agent._id} className="agent-list-item">
             <strong>{agent.name}</strong>
             <span>{agent.email}</span>
-            <Link to={`/agents/${agent._id}/leads`}>
+            <Link to={`/agents/${agent._id}/leads`} className="leads-link">
   View Leads
 </Link>
           </div>
