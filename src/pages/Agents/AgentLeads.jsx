@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 const AgentLeads = () => {
 const [agents, setAgents] = useState([]);
@@ -62,14 +64,16 @@ if (loading) return <h3>Loading...</h3>;
       <h4>Sales Agent: {selectedAgent ? selectedAgent.name : "Loading..."}</h4>
 
       {/* Lead List */}
-      <div className="list">
+      <div className="lead-list">
         {leads.length > 0 ? (
           leads.map(lead => (
-             <div key={lead._id} className="list-item">
+              <Link key={lead._id} to={`/leads/${lead._id}`} className="lead-row">
+             {/* <div key={lead._id} className="list-item"> */}
                <strong>{lead.name}</strong>
                <span>Status: {lead.status}</span>
                <span>Priority: {lead.priority}</span>
-             </div>
+             {/* </div> */}
+               </Link>
            ))
          ) : (
            <h3>No leads found</h3>
