@@ -23,8 +23,12 @@ const LeadList = () => {
 
   fetchLeads();
 }, []);
-
-  const filteredLeads = leadsData
+// const filteredLeads = leadsData
+const filteredLeads = agentFilter
+  ? leadsData.filter(
+      lead => lead.salesAgent.name === agentFilter
+    )
+  : leadsData
     .filter((lead) =>
       statusFilter ? lead.status === statusFilter : true
     )
@@ -42,6 +46,10 @@ const LeadList = () => {
       return 0;
     });
 if (loading) return <h3>Loading...</h3>;
+const uniqueAgents = [
+  ...new Set(leadsData.map(lead => lead.salesAgent.name))
+];
+
   return (
     <div className="lead-list-page">
       <div className="list-header">
@@ -59,6 +67,7 @@ if (loading) return <h3>Loading...</h3>;
             <span><strong>{lead.name}</strong></span>
             <span>{lead.status}</span>
             <span>{lead.salesAgent.name}</span>
+            <span>{lead.priority}</span>
           </Link>
         ))}
       </div>
@@ -74,13 +83,21 @@ if (loading) return <h3>Loading...</h3>;
           <option>Closed</option>
         </select>
 
-        <select onChange={(e) => setAgentFilter(e.target.value)}>
+<select 
+value={agentFilter}
+ onChange={(e) => setAgentFilter(e.target.value)}>
+  <option value="">Filter by Agent</option>
+  {uniqueAgents.map(agent => (
+    <option key={agent} value={agent}>
+      {agent}
+    </option>
+  ))}
+</select>
+
+        {/* <select onChange={(e) => setAgentFilter(e.target.value)}>
           <option value="">Filter by Agent</option>
           {leadsData.map(lead=><option key={lead._id}>{lead.salesAgent.name}</option>)}
-          {/* <option>John Doe</option>
-          <option>Jane Smith</option>
-          <option>Mark Twain</option> */}
-        </select>
+        </select> */}
 
         <select onChange={(e) => setSortBy(e.target.value)}>
           <option value="">Sort by</option>

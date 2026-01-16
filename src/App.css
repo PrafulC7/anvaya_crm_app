@@ -268,11 +268,12 @@ padding-top: 0px;
 
 .lead-row {
   display: flex;
+  flex-wrap: wrap;
   padding: 12px;
   border-bottom: 1px solid #eee;
   text-decoration: none;
   color: inherit;
-  gap: 2rem;
+  gap: 1rem;
   text-align: center;
 }
 
