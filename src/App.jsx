@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard'
 import LeadDetails from "./pages/LeadDetails";
 import Reports from './pages/Reports'
 import Sidebar from "./components/Sidebar"
-// import Settings from "./pages/Settings";
+import Settings from "./pages/Settings";
 import LeadList from "./pages/LeadList";
 import AddLead from "./pages/AddLead";
 import AgentList from "./pages/Agents/AgentList";
