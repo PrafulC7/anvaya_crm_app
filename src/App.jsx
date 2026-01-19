@@ -34,7 +34,7 @@ function App() {
           <Route path="/agents/:agentId/leads" element={<AgentLeads />} />
 
             <Route path="/reports" element={<Reports />} />
-            {/* <Route path="/settings" element={<Settings />} /> */}
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
       </div>

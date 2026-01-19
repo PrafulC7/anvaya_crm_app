@@ -47,14 +47,20 @@ const AddAgent = () => {
       alert("Agent added successfully!");
 
       setFormData({ name: "", email: "" });
+          navigate("/agents");
+
     } catch (err) {
-      setError(
-        err.response?.data?.message || "Error adding agent"
-      );
+      if (
+      err.response?.status === 409 ||
+      err.response?.data?.message?.toLowerCase().includes("email")
+    ) {
+      alert("Error adding agent. Please try again.");
+    } else {
+      alert("Email already exists. Please use a different email.");
+    }
     } finally {
       setLoading(false);
     }    
-    navigate("/agents");
   };
 
 

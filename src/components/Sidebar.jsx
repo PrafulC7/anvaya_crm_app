@@ -23,7 +23,7 @@ const Sidebar = () => {
           Reports
         </NavLink>
 
-        {/* <NavLink to="/settings" className="link">Settings</NavLink> */}
+        <NavLink to="/settings" className="link">Settings</NavLink>
       </nav>
         {/* <nav className="nav flex-column">
   <a className="nav-link active" aria-current="page" href="#">Active</a>
