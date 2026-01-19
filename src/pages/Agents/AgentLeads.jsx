@@ -69,9 +69,9 @@ if (loading) return <h3>Loading...</h3>;
           leads.map(lead => (
               <Link key={lead._id} to={`/leads/${lead._id}`} className="lead-row">
              {/* <div key={lead._id} className="list-item"> */}
-               <strong>{lead.name}</strong>
-               <span>Status: {lead.status}</span>
-               <span>Priority: {lead.priority}</span>
+               <strong className="lead-row-item">{lead.name}</strong>
+               <span className="lead-row-item">Status: {lead.status}</span>
+               <span className="lead-row-item">Priority: {lead.priority}</span>
              {/* </div> */}
                </Link>
            ))

@@ -1,12 +1,111 @@
-import React from 'react'
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Settings = () => {
-  return (
-    <div>Settings</div>
-  )
-}
+  const [agents, setAgents] = useState([]);
+  const [leads, setLeads] = useState([]);
+  const [loading, setLoading] = useState(true); // 🔹 true initially
 
-export default Settings
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const [agentsRes, leadsRes] = await Promise.all([
+        axios.get("https://backend-anvaya-crm.vercel.app/agents"),
+        axios.get("https://backend-anvaya-crm.vercel.app/leads")
+      ]);
+
+      setAgents(agentsRes.data);
+      setLeads(leadsRes.data);
+    } catch (err) {
+      alert("Failed to load data");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (type, id) => {
+    if (!window.confirm("Are you sure you want to delete this?")) return;
+
+    try {
+      setLoading(true);
+
+      await axios.delete(
+        `https://backend-anvaya-crm.vercel.app/${type}/${id}`
+      );
+
+      if (type === "agents") {
+        setAgents(prev => prev.filter(a => a._id !== id));
+      } else {
+        setLeads(prev => prev.filter(l => l._id !== id));
+      }
+
+      alert("Deleted successfully");
+    } catch (err) {
+      alert("Failed to delete");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // 🔹 LOADING UI
+  if (loading) {
+    return <h3>Loading...</h3>;
+  }
+
+  return (
+    <div className="settings-page">
+      <h2>⚙️ Settings</h2>
+
+      <div className="settings-section">
+        <h3>Agents</h3>
+        {agents.length === 0 ? (
+          <p>No agents found</p>
+        ) : (
+          agents.map(agent => (
+            <div key={agent._id} className="settings-item">
+              <span>{agent.name} ({agent.email})</span>
+              <button
+                onClick={() => handleDelete("agents", agent._id)}
+                disabled={loading}
+                className="danger-btn"
+              >
+                {loading ? "Deleting..." : "Delete"}
+              </button>
+            </div>
+          ))
+        )}
+      </div>
+
+      <div className="settings-section">
+        <h3>Leads</h3>
+        {leads.length === 0 ? (
+          <p>No leads found</p>
+        ) : (
+          leads.map(lead => (
+            <div key={lead._id} className="settings-item">
+              <span>{lead.name}</span>
+              <button
+                onClick={() => handleDelete("leads", lead._id)}
+                disabled={loading}
+                className="danger-btn"
+              >
+                {loading ? "Deleting..." : "Delete"}
+              </button>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Settings;
+
+
 
 // import {
 //   PieChart, Pie, Cell,

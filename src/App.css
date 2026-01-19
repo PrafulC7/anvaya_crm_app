@@ -268,17 +268,30 @@ padding-top: 0px;
 
 .lead-row {
   display: flex;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
   padding: 12px;
   border-bottom: 1px solid #eee;
   text-decoration: none;
   color: inherit;
-  gap: 1rem;
-  text-align: center;
+  /* gap: 1rem; */
+  flex-grow: 1;
+
+  /* text-align: center; */
+  /* background-color: #22c55e; */
 }
 
 .lead-row:hover {
   background: #eef2ff;
+}
+
+.lead-row-item{
+  /* background-color: #2563eb; */
+display: flex;
+justify-content: center;
+text-align: center;
+width: 32%;
+/* flex-grow: 1; */
 }
 
 /* .add-btn {
@@ -415,3 +428,24 @@ padding: 24px;
   text-decoration: underline;
   color: #2563eb;
 }
+
+/* Settings */
+.settings-section {
+  margin-top: 30px;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.danger-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
