@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const Settings = () => {
   const [agents, setAgents] = useState([]);
@@ -21,14 +22,15 @@ const Settings = () => {
       setAgents(agentsRes.data);
       setLeads(leadsRes.data);
     } catch (err) {
-      alert("Failed to load data");
+console.log(err)
+      // toast.error("Delete failed");
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (type, id) => {
-    if (!window.confirm("Are you sure you want to delete this?")) return;
+    // if (!window.confirm("Are you sure you want to delete this?")) return;
 
     try {
       setLoading(true);
@@ -42,10 +44,11 @@ const Settings = () => {
       } else {
         setLeads(prev => prev.filter(l => l._id !== id));
       }
-
-      alert("Deleted successfully");
+ toast.success("Deleted successfully");
+      // alert("Deleted successfully");
     } catch (err) {
-      alert("Failed to delete");
+      toast.error("Delete failed");
+      // alert("Failed to delete");
     } finally {
       setLoading(false);
     }

@@ -142,6 +142,7 @@ padding-top: 0px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 1rem;
 }
 
 .lead-form label {
@@ -268,15 +269,13 @@ padding-top: 0px;
 
 .lead-row {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   flex-wrap: wrap;
   padding: 12px;
   border-bottom: 1px solid #eee;
   text-decoration: none;
   color: inherit;
   /* gap: 1rem; */
-  flex-grow: 1;
-
   /* text-align: center; */
   /* background-color: #22c55e; */
 }
@@ -292,6 +291,13 @@ justify-content: center;
 text-align: center;
 width: 32%;
 /* flex-grow: 1; */
+}
+
+.lead-item{
+  display: flex;
+justify-content: center;
+text-align: center;
+width: 24%;
 }
 
 /* .add-btn {

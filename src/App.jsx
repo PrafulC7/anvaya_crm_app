@@ -2,6 +2,8 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import './App.css'
 import Dashboard from './pages/Dashboard'
 import LeadDetails from "./pages/LeadDetails";
@@ -23,6 +25,7 @@ function App() {
   <div className="app-layout">
         <Sidebar />
 <div className="main-content">
+   <ToastContainer position="top-right" autoClose={3000} />
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/leads" element={<LeadList />} />

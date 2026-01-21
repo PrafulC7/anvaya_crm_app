@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import axios from "axios";
 const AddAgent = () => {
       const navigate = useNavigate();
@@ -43,8 +44,8 @@ const AddAgent = () => {
         "https://backend-anvaya-crm.vercel.app/agents",
         formData
       );
-
-      alert("Agent added successfully!");
+toast.success("Agent added successfully!");
+      // alert("Agent added successfully!");
 
       setFormData({ name: "", email: "" });
           navigate("/agents");

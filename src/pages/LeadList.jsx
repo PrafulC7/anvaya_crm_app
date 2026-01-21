@@ -64,10 +64,10 @@ const uniqueAgents = [
             to={`/leads/${lead._id}`}
             className="lead-row"
           >
-            <span><strong>{lead.name}</strong></span>
-            <span>{lead.status}</span>
-            <span>{lead.salesAgent.name}</span>
-            <span>{lead.priority}</span>
+            <span className="lead-item"><strong>{lead.name}</strong></span>
+            <span className="lead-item">{lead.status}</span>
+            <span className="lead-item">{lead.salesAgent.name}</span>
+            <span className="lead-item">{lead.priority}</span>
           </Link>
         ))}
       </div>
