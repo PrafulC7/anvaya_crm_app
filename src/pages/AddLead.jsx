@@ -120,7 +120,8 @@ const AddLead = () => {
 
         <label>
           Lead Status
-          <select name="status" onChange={handleChange}>
+          <select name="status" onChange={handleChange} required>
+            <option value="">Select Status</option>
             {statuses.map((s) => (
               <option key={s}>{s}</option>
             ))}
@@ -129,7 +130,8 @@ const AddLead = () => {
 
         <label>
           Priority
-          <select name="priority" onChange={handleChange}>
+          <select name="priority" onChange={handleChange} required>
+            <option value="">Select Priority</option>
             {priorities.map((p) => (
               <option key={p}>{p}</option>
             ))}
@@ -155,6 +157,7 @@ const AddLead = () => {
                 type="checkbox"
                 checked={formData.tags.includes(tag)}
                 onChange={() => handleMultiSelect(tag, "tags")}
+                required
               />
               {tag}
             </label>

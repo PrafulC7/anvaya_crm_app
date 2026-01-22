@@ -32,9 +32,9 @@ return (
       <div className="list">
         {agents.map(agent => (
           <div key={agent._id} className="agent-list-item">
-            <strong>{agent.name}</strong>
-            <span>{agent.email}</span>
-            <Link to={`/agents/${agent._id}/leads`} className="leads-link">
+            <strong className="viewLeads-item">{agent.name}</strong>
+            <span className="viewLeads-item">{agent.email}</span>
+            <Link to={`/agents/${agent._id}/leads`} className="leads-link viewLeads-item">
   View Leads
 </Link>
           </div>
