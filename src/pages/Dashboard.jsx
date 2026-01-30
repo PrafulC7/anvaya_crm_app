@@ -59,13 +59,7 @@ if (loading) return <h3>Loading...</h3>;
     </Link>
   </p>
 ))}
-  {/* <div className="status-links">
-  <Link to="/leads/status/New">New</Link>
-<Link to="/leads/status/Contacted">Contacted</Link>
-<Link to="/leads/status/Qualified">Qualified</Link>
-<Link to="/leads/status/ProposalSent">Proposal Sent</Link>
-<Link to="/leads/status/Closed">Closed</Link>
-</div> */}
+  
 </div>
 
       {/* Quick Filters */}
