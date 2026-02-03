@@ -25,11 +25,11 @@ npm run dev
 
 ## Technologies
 
-- React JS
-- React Router
-- Node JS
-- Express
-- MongoDB
+- **Frontend:** React, JavaScript, HTML5, CSS3
+- **Styling:** Bootstrap
+- **Backend:** Node.js, Express
+- **Database:** MongoDB
+- **Version Control:** Git & GitHub
 
 ---
 
@@ -41,11 +41,45 @@ Watch a walkthrough (5-7 minutes) of all the major features of this app:
 
 ## Features
 
-Manage customers and leads
-Track sales activities and follow-ups
-Dashboard with key metrics
-Search and filter records
-Responsive UI for desktop and mobile
+### 🧑‍💼 Lead Management
+- Create new leads
+- View a list of all leads
+- Update lead details
+- Delete existing leads
+- Filter leads by status or agent
+
+### 👥 Agent Management
+- Assign leads to agents
+- View agent-wise lead distribution
+- Update agent information
+- Track agent performance
+
+### 📊 Dashboard & Analytics
+- Display total leads count
+- Show leads grouped by status
+- Visualize agent performance data
+- Provide quick overview of CRM activity
+
+### ⚙️ User Experience
+- Display responsive UI across devices
+- Show loaders during API requests
+- Handle API errors gracefully
+- Maintain clean and intuitive navigation
+
+---
+
+## ⚙️ Environment Setup
+
+This project uses environment variables for secure configuration.
+
+### 📄 Create a `.env` file in the root directory
+```
+env
+PORT=3000
+MONGO_URI=mongodb+srv://neoGStudent:neoGStudentBD@neog.acigu1h.mongodb.net/anvaya_crm?retryWrites=true&w=majority&appName=neoG
+```
+
+---
 
 ## API Reference
 
